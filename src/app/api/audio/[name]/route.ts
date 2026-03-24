@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-const AUDIO_DIR = path.join(process.cwd(), "audio");
+const AUDIO_DIR = path.join(process.cwd(), "public", "audio");
 
 const ALLOWED = new Set([
   "Em Đồng Ý (I Do).mp3",

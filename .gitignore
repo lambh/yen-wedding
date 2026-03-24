@@ -40,10 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local data (SQLite wishes DB)
+# local data (SQLite wishes DB — regenerated at runtime)
 /data/
 
-# original photo & audio assets (large binaries, served locally)
+# source folders no longer needed (assets now in public/)
 /audio/
 /chinh cd phạm yến/
-/public/photos/

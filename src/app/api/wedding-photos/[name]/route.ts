@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import sharp from "sharp";
-import { WEDDING_PHOTO_DIR, WEDDING_PHOTO_NAMES } from "@/lib/weddingPhotoSource";
+import { WEDDING_PHOTO_NAMES } from "@/lib/weddingPhotoSource";
 
 type RouteParams = { params: Promise<{ name: string }> };
 
@@ -36,7 +36,7 @@ export async function GET(request: Request, { params }: RouteParams) {
     });
   }
 
-  const filePath = path.join(process.cwd(), WEDDING_PHOTO_DIR, decodedName);
+  const filePath = path.join(process.cwd(), "public", "photos", decodedName);
 
   try {
     const raw = await fs.readFile(filePath);
