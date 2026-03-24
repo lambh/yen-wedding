@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+:root {
+  --background: #faf9f6; /* Warm Cream / Silk Paper */
+  --foreground: #4a3f35; /* Deep Antique Bronze */
+  --accent: #8c7851; /* Muted Gold */
+  /* These will be overridden by the inline styles in page.tsx for next/font */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* No scrollbars */
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
+}
+
+canvas {
+  touch-action: none; /* Prevent browser handling of touch gestures */
+}
+
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.ui-overlay {
+  position: relative;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through to canvas by default */
+}
+
+.ui-overlay * {
+  pointer-events: auto; /* Re-enable for UI elements */
+}
+
+/* Custom Typography */
+h1, h2, .serif {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Hide Scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee animations — runs on compositor thread, zero JS cost */
+@keyframes marquee-left {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.marquee-left {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-left 36s linear infinite;
+  will-change: transform;
+}
+.marquee-right {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-right 44s linear infinite;
+  will-change: transform;
+}
+.marquee-left2 {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-left 40s linear infinite;
+  will-change: transform;
+}
+
+/* Equalizer bar animation for audio player */
+@keyframes eq-bar {
+  from { transform: scaleY(0.35); }
+  to   { transform: scaleY(1); }
+}
+
+/* Photo card CSS hover — no JS event listeners */
+.photo-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  will-change: transform;
+  cursor: pointer;
+}
+.photo-card:hover {
+  transform: scale(1.05) translateY(-8px);
+  box-shadow: 0 24px 48px rgba(79, 58, 40, 0.26);
+}

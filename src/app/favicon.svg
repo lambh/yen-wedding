@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#FAF9F6"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="none" stroke="#b8860b" stroke-width="1.5" opacity="0.6"/>
+  <!-- decorative top flourish -->
+  <path d="M32 8 Q36 11 32 14 Q28 11 32 8Z" fill="#b8860b" opacity="0.7"/>
+  <!-- P -->
+  <text x="13" y="42" font-family="Georgia,serif" font-size="26" font-weight="600" fill="#5a3e22" letter-spacing="1">P</text>
+  <!-- ampersand -->
+  <text x="28" y="38" font-family="Georgia,serif" font-size="13" font-style="italic" fill="#b8860b">&#38;</text>
+  <!-- Y -->
+  <text x="37" y="42" font-family="Georgia,serif" font-size="26" font-weight="600" fill="#5a3e22">Y</text>
+  <!-- decorative bottom line -->
+  <line x1="14" y1="47" x2="50" y2="47" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+</svg>
